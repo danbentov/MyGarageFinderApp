@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyGarageFinderApp.ViewModels
 {
-    internal class RegisterViewModel
+    public class RegisterViewModel : ViewModelBase
     {
     }
 }
