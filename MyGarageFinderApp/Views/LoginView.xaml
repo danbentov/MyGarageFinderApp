@@ -3,10 +3,35 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyGarageFinderApp.Views.LoginView"
              Title="LoginView">
-    <VerticalStackLayout>
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <Entry 
+        Placeholder="License Number"
+        Keyboard="Email"
+        Text="{Binding LicenseNumber}" IsEnabled="{Binding NotInServerCall}"/>
+
+        <Entry 
+        Placeholder="Password"
+        IsPassword="True"
+        Text="{Binding Password}" IsEnabled="{Binding NotInServerCall}"/>
+
+        <Button 
+        Text="Login"
+        Command="{Binding LoginCommand}" IsEnabled="{Binding NotInServerCall}"/>
+        
+        <Label Text="{Binding ErrorMsg}" TextColor="Red" HorizontalOptions="Center"></Label>
+        
         <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        Text="Don't have an account? Register"
+        TextColor="Blue"
+        HorizontalOptions="Center"
+        VerticalOptions="End" IsEnabled="{Binding NotInServerCall}">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding RegisterCommand}"/>
+            </Label.GestureRecognizers>
+        </Label>
+        <ActivityIndicator IsRunning="{Binding InServerCall}" Color="Red"></ActivityIndicator>
     </VerticalStackLayout>
+
 </ContentPage>

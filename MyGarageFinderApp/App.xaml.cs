@@ -1,15 +1,24 @@
-﻿using MyGarageFinderApp.Models;
+﻿using Microsoft.Extensions.DependencyInjection;
+using MyGarageFinderApp.Models;
+using MyGarageFinderApp.ViewModels;
+using MyGarageFinderApp.Views;
+using TasksManagementApp.Services;
+
+
 
 namespace MyGarageFinderApp
 {
     public partial class App : Application
     {
         public User? LoggedInUser { get; set; }
-        public App()
+        private MyGarageFinderWebAPIProxy proxy;
+
+        public App(IServiceProvider serviceProvider, MyGarageFinderWebAPIProxy proxy)
         {
-            InitializeComponent();
             LoggedInUser = null;
-            MainPage = new AppShell();
+            this.proxy = proxy;
+            InitializeComponent();
+            MainPage = new NavigationPage(serviceProvider.GetService<LoginView>());
         }
     }
 }

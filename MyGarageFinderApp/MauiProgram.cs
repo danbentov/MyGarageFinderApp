@@ -61,7 +61,7 @@ namespace MyGarageFinderApp
         {
             builder.Services.AddTransient<AddCarViewModel>();
             builder.Services.AddTransient<AddReviewViewModel>();
-            builder.Services.AddTransient<AppShellView>();
+            builder.Services.AddTransient<AppShellViewModel>();
             builder.Services.AddTransient<ChatViewModel>();
             builder.Services.AddTransient<GarageProfileViewModel>();
             builder.Services.AddTransient<GarageRegisterViewModel>();
