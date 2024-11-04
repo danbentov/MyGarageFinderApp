@@ -15,7 +15,6 @@ namespace MyGarageFinderApp.Models
         public string LicenseNumber { get; set; } = null!;
         public string UserPassword { get; set; } = null!;
         public int UserStatusId { get; set; }
-        public string Phone { get; set; }
         public int GarageLicense { get; set; }
 
         public User() { }

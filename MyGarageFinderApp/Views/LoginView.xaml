@@ -1,37 +1,45 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyGarageFinderApp.Views.LoginView"
-             Title="LoginView">
+<ContentPage
+    x:Class="MyGarageFinderApp.Views.LoginView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="LoginView">
 
     <VerticalStackLayout Padding="20" Spacing="15">
 
-        <Entry 
-        Placeholder="License Number"
-        Keyboard="Email"
-        Text="{Binding LicenseNumber}" IsEnabled="{Binding NotInServerCall}"/>
+        <Entry
+            IsEnabled="{Binding NotInServerCall}"
+            Keyboard="Email"
+            Placeholder="License Number"
+            Text="{Binding LicenseNumber}" />
 
-        <Entry 
-        Placeholder="Password"
-        IsPassword="True"
-        Text="{Binding Password}" IsEnabled="{Binding NotInServerCall}"/>
+        <Entry
+            IsEnabled="{Binding NotInServerCall}"
+            IsPassword="True"
+            Placeholder="Password"
+            Text="{Binding Password}" />
 
-        <Button 
-        Text="Login"
-        Command="{Binding LoginCommand}" IsEnabled="{Binding NotInServerCall}"/>
-        
-        <Label Text="{Binding ErrorMsg}" TextColor="Red" HorizontalOptions="Center"></Label>
-        
-        <Label 
-        Text="Don't have an account? Register"
-        TextColor="Blue"
-        HorizontalOptions="Center"
-        VerticalOptions="End" IsEnabled="{Binding NotInServerCall}">
+        <Button
+            Command="{Binding LoginCommand}"
+            IsEnabled="{Binding NotInServerCall}"
+            Text="Login" />
+
+        <Label
+            HorizontalOptions="Center"
+            Text="{Binding ErrorMsg}"
+            TextColor="Red" />
+
+        <Label
+            HorizontalOptions="Center"
+            IsEnabled="{Binding NotInServerCall}"
+            Text="Don't have an account? Register"
+            TextColor="Blue"
+            VerticalOptions="End">
             <Label.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding RegisterCommand}"/>
+                <TapGestureRecognizer Command="{Binding RegisterCommand}" />
             </Label.GestureRecognizers>
         </Label>
-        <ActivityIndicator IsRunning="{Binding InServerCall}" Color="Red"></ActivityIndicator>
+        <ActivityIndicator IsRunning="{Binding InServerCall}" Color="Red" />
     </VerticalStackLayout>
 
 </ContentPage>
