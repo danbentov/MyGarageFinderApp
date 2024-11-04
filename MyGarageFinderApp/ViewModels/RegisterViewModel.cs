@@ -127,7 +127,7 @@ namespace MyGarageFinderApp.ViewModels
 
         private void ValidateLastName()
         {
-            this.ShowNameError = string.IsNullOrEmpty(Name);
+            this.ShowLastNameError = string.IsNullOrEmpty(LastName);
         }
         #endregion
 
@@ -355,9 +355,10 @@ namespace MyGarageFinderApp.ViewModels
             ValidateName();
             ValidateLastName();
             ValidateEmail();
+            ValidateLicenseNumber();
             ValidatePassword();
 
-            if (!ShowNameError && !ShowLastNameError && !ShowEmailError && !ShowPasswordError)
+            if (!ShowNameError && !ShowLastNameError && !ShowEmailError && !ShowPasswordError && !ShowLicenseNumberError)
             {
                 //Create a new AppUser object with the data from the registration form
                 var newUser = new User
