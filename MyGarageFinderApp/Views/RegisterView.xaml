@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyGarageFinderApp.Views.RegisterView"
              Title="RegisterView">
-    
+    <Border Stroke="DarkSlateGray"  StrokeThickness="5" Padding="5">
     <VerticalStackLayout>
+            <Label Text="WELCOME TO MY GARAGE FINDER !" FontSize="Title" HorizontalTextAlignment="Center" Padding="20" FontFamily="Camaro"/>
         
         <!--firstname-->
         <Grid>
@@ -74,10 +75,18 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Button Text="Register" Command="{Binding RegisterCommand}" IsEnabled="{Binding NotInServerCall}" Grid.Column="1" Style="{StaticResource buttonStyle}" />
-                <Button Text="Cancel" Command="{Binding CancelCommand}" IsEnabled="{Binding NotInServerCall}" Grid.Column="0" Style="{StaticResource buttonStyle}"/>
+                <Button Text="Register" Command="{Binding RegisterCommand}" IsEnabled="{Binding NotInServerCall}" Grid.Column="1" BackgroundColor="Green" Margin="5"/>
+                <Button Text="Cancel" Command="{Binding CancelCommand}" IsEnabled="{Binding NotInServerCall}" Grid.Column="0" BackgroundColor="Red" Margin="5" />
             </Grid>
-        </VerticalStackLayout>
 
+        <!-- Centered ActivityIndicator -->
+        <ActivityIndicator IsRunning="{Binding InServerCall}" 
+                   Color="Red" 
+                   VerticalOptions="Center" 
+                   HorizontalOptions="Center" />
         
+    </VerticalStackLayout>
+    </Border>
+
+
 </ContentPage>

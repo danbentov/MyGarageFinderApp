@@ -17,6 +17,7 @@ namespace MyGarageFinderApp
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("Camaro.ttf", "Camaro");
                 })
                 .RegisterDataServices()
                 .RegisterPages()
