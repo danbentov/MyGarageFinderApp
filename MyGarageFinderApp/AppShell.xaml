@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MyGarageFinderApp"
+    xmlns:Views="clr-namespace:MyGarageFinderApp.Views"
     Shell.FlyoutBehavior="Flyout"
     Title="MyGarageFinderApp">
 
@@ -11,33 +12,33 @@
 
         <ShellContent
             Title="Find Garage" Icon="passwordeye.png"
-            ContentTemplate="{DataTemplate views:GaragesHomePageView}"
+            ContentTemplate="{DataTemplate Views:GaragesHomePageView}"
             Route="GaragesHomePage" />
         <ShellContent
             Title="Map" Icon="passwordeye.png"
-            ContentTemplate="{DataTemplate views:GaragesMapView}"
+            ContentTemplate="{DataTemplate Views:GaragesMapView}"
             Route="Map" />
         <ShellContent
             Title="Profile" Icon="passwordeye.png"
-            ContentTemplate="{DataTemplate views:ProfileView}"
+            ContentTemplate="{DataTemplate Views:ProfileView}"
             Route="Profile" />
         <ShellContent
             Title="Chats" Icon="passwordeye.png"
-            ContentTemplate="{DataTemplate views:MyChatsView}"
+            ContentTemplate="{DataTemplate Views:MyChatsView}"
             Route="Chats" />
         <ShellContent
             Title="Appointments" Icon="passwordeye.png"
-            ContentTemplate="{DataTemplate views:MyAppoitmentsView}"
+            ContentTemplate="{DataTemplate Views:MyAppoitmentsView}"
             Route="Appointments" />
 
         <Tab Title="Manager Area" Icon="passwordeye.png" Route="Manager" IsVisible="{Binding IsManager}">
             <ShellContent
             Title="Statistics" Icon="passwordeye.png"
-            ContentTemplate="{DataTemplate views:StatisticsView}"
+            ContentTemplate="{DataTemplate Views:StatisticsView}"
             Route="Statistics" />
             <ShellContent
             Title="Users" Icon="passwordeye.png"
-            ContentTemplate="{DataTemplate views:UsersListView}"
+            ContentTemplate="{DataTemplate Views:UsersListView}"
             Route="UsersList" />
         </Tab>
 
@@ -46,15 +47,15 @@
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems" Route="Tabs" IsVisible="{Binding IsManagingGarageMode}">
         <ShellContent
             Title="Register" Icon="passwordeye.png"
-            ContentTemplate="{DataTemplate views:GarageRegisterView}"
+            ContentTemplate="{DataTemplate Views:GarageRegisterView}"
             Route="GarageRegister" />
         <ShellContent
             Title="MyGarage" Icon="passwordeye.png"
-            ContentTemplate="{DataTemplate views:GarageProfileView}"
+            ContentTemplate="{DataTemplate Views:GarageProfileView}"
             Route="MyGarage" />
         <ShellContent
             Title="Chats" Icon="passwordeye.png"
-            ContentTemplate="{DataTemplate views:MyChatsView}"
+            ContentTemplate="{DataTemplate Views:MyChatsView}"
             Route="Chats" />
     </FlyoutItem>
 
