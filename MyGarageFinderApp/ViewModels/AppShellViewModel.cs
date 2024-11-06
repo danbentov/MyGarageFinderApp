@@ -16,6 +16,9 @@ namespace MyGarageFinderApp.ViewModels
         {
             this.serviceProvider = serviceProvider;
             this.currentUser = ((App)Application.Current).LoggedInUser;
+            IsManagingGarageMode = false;
+            IsInUserMode = true;
+            ManageGarageCommand = new Command(OnManageGarage);
         }
 
         public bool IsManager
@@ -24,9 +27,31 @@ namespace MyGarageFinderApp.ViewModels
             {
                 if (currentUser.UserStatusId == 1)
                     return false;
-                return true;
+                if (currentUser.UserStatusId == 2)
+                    return true;
+                return false;
             }
         }
+
+        public bool IsGarageManager
+        {
+            get
+            {
+                if (currentUser.GarageLicense == 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
+
+        public bool IsManagingGarageMode { get; set; }
+        public bool IsInUserMode { get; set; }
+
+
 
         //this command will be used for logout menu item
         public Command LogoutCommand
@@ -42,6 +67,13 @@ namespace MyGarageFinderApp.ViewModels
             ((App)Application.Current).LoggedInUser = null;
 
             ((App)Application.Current).MainPage = new NavigationPage(serviceProvider.GetService<LoginView>());
+        }
+
+        public Command ManageGarageCommand { get; }
+        public void OnManageGarage()
+        {
+            IsManagingGarageMode = !IsManagingGarageMode;
+            IsInUserMode = !IsInUserMode;
         }
 
     }

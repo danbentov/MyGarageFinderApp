@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyGarageFinderApp.ViewModels
 {
-    public class MyAppoitmentsViewModel : ViewModelBase
+    public class MyAppointmentsViewModel : ViewModelBase
     {
     }
 }

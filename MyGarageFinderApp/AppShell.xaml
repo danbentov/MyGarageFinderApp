@@ -4,12 +4,61 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MyGarageFinderApp"
-    Shell.FlyoutBehavior="Disabled"
+    Shell.FlyoutBehavior="Flyout"
     Title="MyGarageFinderApp">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems" Route="tabs" IsVisible="{Binding IsInUserMode}">
+
+        <ShellContent
+            Title="Find Garage" Icon="passwordeye.png"
+            ContentTemplate="{DataTemplate views:GaragesHomePageView}"
+            Route="GaragesHomePage" />
+        <ShellContent
+            Title="Map" Icon="passwordeye.png"
+            ContentTemplate="{DataTemplate views:GaragesMapView}"
+            Route="Map" />
+        <ShellContent
+            Title="Profile" Icon="passwordeye.png"
+            ContentTemplate="{DataTemplate views:ProfileView}"
+            Route="Profile" />
+        <ShellContent
+            Title="Chats" Icon="passwordeye.png"
+            ContentTemplate="{DataTemplate views:MyChatsView}"
+            Route="Chats" />
+        <ShellContent
+            Title="Appointments" Icon="passwordeye.png"
+            ContentTemplate="{DataTemplate views:MyAppoitmentsView}"
+            Route="Appointments" />
+
+        <Tab Title="Manager Area" Icon="passwordeye.png" Route="Manager" IsVisible="{Binding IsManager}">
+            <ShellContent
+            Title="Statistics" Icon="passwordeye.png"
+            ContentTemplate="{DataTemplate views:StatisticsView}"
+            Route="Statistics" />
+            <ShellContent
+            Title="Users" Icon="passwordeye.png"
+            ContentTemplate="{DataTemplate views:UsersListView}"
+            Route="UsersList" />
+        </Tab>
+
+    </FlyoutItem>
+
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems" Route="Tabs" IsVisible="{Binding IsManagingGarageMode}">
+        <ShellContent
+            Title="Register" Icon="passwordeye.png"
+            ContentTemplate="{DataTemplate views:GarageRegisterView}"
+            Route="GarageRegister" />
+        <ShellContent
+            Title="MyGarage" Icon="passwordeye.png"
+            ContentTemplate="{DataTemplate views:GarageProfileView}"
+            Route="MyGarage" />
+        <ShellContent
+            Title="Chats" Icon="passwordeye.png"
+            ContentTemplate="{DataTemplate views:MyChatsView}"
+            Route="Chats" />
+    </FlyoutItem>
+
+    <MenuItem Text="Switch Mode" Command="{Binding ManageGarageCommand}"/>
+    <MenuItem Text="Logout" Command="{Binding LogoutCommand}" />
 
 </Shell>

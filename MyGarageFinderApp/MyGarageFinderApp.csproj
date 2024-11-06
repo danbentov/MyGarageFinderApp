@@ -69,6 +69,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\MyAppoitmentsView.xaml.cs">
+	    <DependentUpon>MyAppoitmentsView.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="Views\AddCarView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

@@ -69,7 +69,7 @@ namespace MyGarageFinderApp
             builder.Services.AddTransient<GaragesHomePageViewModel>();
             builder.Services.AddTransient<GaragesMapViewModel>();
             builder.Services.AddTransient<LoginViewModel>();
-            builder.Services.AddTransient<MyAppoitmentsViewModel>();
+            builder.Services.AddTransient<MyAppointmentsViewModel>();
             builder.Services.AddTransient<MyCarsProfileViewModel>();
             builder.Services.AddTransient<MyChatsViewModel>();
             builder.Services.AddTransient<ProfileViewModel>();
