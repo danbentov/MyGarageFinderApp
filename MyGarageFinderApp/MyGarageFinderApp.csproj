@@ -58,8 +58,19 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Fonts\Camaro.ttf" />
+	  <None Remove="Resources\Images\appointmenticon.png" />
+	  <None Remove="Resources\Images\blackchaticon.png" />
+	  <None Remove="Resources\Images\caricon.png" />
+	  <None Remove="Resources\Images\findericon.png" />
 	  <None Remove="Resources\Images\garagebackground.jfif" />
+	  <None Remove="Resources\Images\garageicon.png" />
+	  <None Remove="Resources\Images\listicon.png" />
+	  <None Remove="Resources\Images\managericon.png" />
+	  <None Remove="Resources\Images\mapicon.png" />
 	  <None Remove="Resources\Images\passwordEye.jpg" />
+	  <None Remove="Resources\Images\plusicon.png" />
+	  <None Remove="Resources\Images\statsicon.png" />
+	  <None Remove="Resources\Images\whitechaticon.png" />
 	</ItemGroup>
 
 	<ItemGroup>

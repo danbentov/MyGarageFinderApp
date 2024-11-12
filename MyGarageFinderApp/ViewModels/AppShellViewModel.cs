@@ -18,7 +18,7 @@ namespace MyGarageFinderApp.ViewModels
             this.currentUser = ((App)Application.Current).LoggedInUser;
             IsManagingGarageMode = false;
             IsInUserMode = true;
-            ManageGarageCommand = new Command(OnManageGarage);
+            //ManageGarageCommand = new Command(OnManageGarage);
         }
 
         public bool IsManager
@@ -69,12 +69,12 @@ namespace MyGarageFinderApp.ViewModels
             ((App)Application.Current).MainPage = new NavigationPage(serviceProvider.GetService<LoginView>());
         }
 
-        public Command ManageGarageCommand { get; }
-        public void OnManageGarage()
-        {
-            IsManagingGarageMode = !IsManagingGarageMode;
-            IsInUserMode = !IsInUserMode;
-        }
+        //public Command ManageGarageCommand { get; }
+        //public void OnManageGarage()
+        //{
+        //    IsManagingGarageMode = !IsManagingGarageMode;
+        //    IsInUserMode = !IsInUserMode;
+        //}
 
     }
 }
