@@ -99,7 +99,7 @@ namespace MyGarageFinderApp.ViewModels
                 //Navigate to the main page
                 AppShell shell = serviceProvider.GetService<AppShell>();
                 GaragesHomePageViewModel garagesHomePageViewModel = serviceProvider.GetService<GaragesHomePageViewModel>();
-               /* garagesHomePageViewModel.Refresh();*/ //Refresh data and user in the tasksview model as it is a singleton
+               /* garagesHomePageViewModel.Refresh();*/ //Refresh  data and user in the tasksview model as it is a singleton
                 ((App)Application.Current).MainPage = shell;
                 Shell.Current.FlyoutIsPresented = false; //close the flyout
             }
