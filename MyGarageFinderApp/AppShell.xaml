@@ -20,8 +20,8 @@
             Route="Map" />
         <ShellContent
             Title="Profile" Icon="caricon.png"
-            ContentTemplate="{DataTemplate Views:ProfileView}"
-            Route="Profile" />
+            ContentTemplate="{DataTemplate Views:MyCarsProfileView}"
+            Route="CarsProfile" />
         <ShellContent
             Title="Chats" Icon="whitechaticon.png"
             ContentTemplate="{DataTemplate Views:MyChatsView}"
