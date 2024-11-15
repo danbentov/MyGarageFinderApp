@@ -11,12 +11,12 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="20"/>
-                <RowDefinition Height="20"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
             </Grid.RowDefinitions>
-            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Name}" Style="{StaticResource labelNameStyle}"/>
-            <Label Grid.Row="1" Grid.Column="0" Text="{Binding License}" Style="{StaticResource labelNameStyle}"/>
-            <Button Text="Update Profile" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Command="{Binding UpdateUserCommand}"/>
+            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Name}" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+            <Label Grid.Row="1" Grid.Column="0" Text="{Binding License}" FontAttributes="Bold" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+            <Button Text="Update Profile" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Command="{Binding UpdateUserCommand}"/>
         </Grid>
 
         <CollectionView ItemsSource="{Binding MyVehicles}" x:Name="theCollectionView"

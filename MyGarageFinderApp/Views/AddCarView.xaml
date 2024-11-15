@@ -46,7 +46,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Button Text="Register" Command="{Binding RegisterVehicleCommand}" IsEnabled="{Binding IsSearched}" Grid.Column="1" BackgroundColor="Green" Margin="5"/>
-            <Button Text="Search" Command="{Binding SearchVehicleCommand}" IsEnabled="{Binding NotInServerCall}" Grid.Column="0" BackgroundColor="Red" Margin="5" />
+            <Button Text="Search" Command="{Binding SearchVehicleCommand}" IsEnabled="{Binding NotInServerCall}" Grid.Column="0" BackgroundColor="Blue" Margin="5" />
         </Grid>
 
         <Label Text="{Binding FoundVehicle}" FontSize="Body"  HorizontalTextAlignment="Center" Padding="5" FontFamily="Camaro" IsVisible="{Binding IsSearched}"/>

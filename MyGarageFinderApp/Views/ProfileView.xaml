@@ -4,9 +4,84 @@
              x:Class="MyGarageFinderApp.Views.ProfileView"
              Title="ProfileView">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+
+        <Label Text="Your Profile !" FontSize="Title" HorizontalTextAlignment="Center" Padding="20" FontFamily="Camaro"/>
+        
+        <!-- License Number -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Text="License Number" Grid.Column="0" Style="{StaticResource labelNameStyle}" />
+            <Label Text="{Binding LicenseNumber}" Grid.Column="1" Style="{StaticResource labelNameStyle}" />
+        </Grid>
+
+        <!--firstname-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Text="First Name" Grid.Column="0" Style="{x:StaticResource labelNameStyle}" />
+            <Label Text="{Binding NameError}" IsVisible="{Binding ShowNameError}" Grid.Column="1" Style="{StaticResource labelErrorStyle}" />
+        </Grid>
+        <Entry Placeholder="Type First Name" Text="{Binding Name}" Style="{StaticResource entryStyle}" />
+
+        <!-- Last Name -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Text="Last Name" Grid.Column="0" Style="{StaticResource labelNameStyle}" />
+            <Label Text="{Binding LastNameError}" IsVisible="{Binding ShowLastNameError}" Grid.Column="1" Style="{StaticResource labelErrorStyle}" />
+        </Grid>
+        <Entry Placeholder="Type Last Name" Text="{Binding LastName}" Style="{StaticResource entryStyle}" />
+
+        <!-- Email -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Text="Email" Grid.Column="0" Style="{StaticResource labelNameStyle}" />
+            <Label Text="{Binding EmailError}" IsVisible="{Binding ShowEmailError}" Grid.Column="1" Style="{StaticResource labelErrorStyle}" />
+        </Grid>
+        <Entry Placeholder="Type Email" Text="{Binding Email}" Style="{StaticResource entryStyle}" />
+        <!-- Password -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Text="Password" Grid.Column="0" Style="{StaticResource labelNameStyle}" />
+            <Label Text="{Binding PasswordError}" IsVisible="{Binding ShowPasswordError}" Grid.Column="1" Style="{StaticResource labelErrorStyle}" />
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="40" />
+            </Grid.ColumnDefinitions>
+            <Entry Grid.Column="0" Placeholder="Type Password" Text="{Binding Password}" IsPassword="{Binding IsPassword}" Style="{StaticResource entryStyle}" />
+            <ImageButton Grid.Column="1" HeightRequest="25" Source="passwordeye.jpg"  Command="{Binding ShowPasswordCommand}" />
+        </Grid>
+
+        <!-- Register and Cancel Buttons -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Text="Update" Command="{Binding UpdateCommand}" IsEnabled="{Binding NotInServerCall}" Grid.Column="1" BackgroundColor="Green" Margin="5"/>
+            <Button Text="Cancel" Command="{Binding CancelCommand}" IsEnabled="{Binding NotInServerCall}" Grid.Column="0" BackgroundColor="Red" Margin="5" />
+        </Grid>
+
+        <!-- Centered ActivityIndicator -->
+        <ActivityIndicator IsRunning="{Binding InServerCall}" 
+           Color="Red" 
+           VerticalOptions="Center" 
+           HorizontalOptions="Center" />
+
     </VerticalStackLayout>
 </ContentPage>

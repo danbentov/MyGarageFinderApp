@@ -28,8 +28,8 @@ namespace MyGarageFinderApp.ViewModels
         }
 
         private MyGarageFinderWebAPIProxy proxy;
-        private string Name;
-        private string License;
+        public string Name { get; set; }
+        public string License { get; set; }
         public MyCarsProfileViewModel(MyGarageFinderWebAPIProxy p)
         {
             this.proxy = p;
@@ -61,9 +61,9 @@ namespace MyGarageFinderApp.ViewModels
             }
         }
 
-        public ICommand SingleSelectCommand;
-        public ICommand AddCarCommand;
-        public ICommand UpdateUserCommand;
+        public Command SingleSelectCommand { get; set; }
+        public Command AddCarCommand { get; set; }
+        public Command UpdateUserCommand { get; set; }
 
 
         async void OnSingleSelectVehicle()
@@ -81,12 +81,12 @@ namespace MyGarageFinderApp.ViewModels
             }
         }
 
-        async void OnAddCarCommand()
+        private async void OnAddCarCommand()
         {
             await Shell.Current.GoToAsync("addCarView");
         }
 
-        async void OnUpdateCommand()
+        private async void OnUpdateCommand()
         {
             await Shell.Current.GoToAsync("updateProfileView");
         }
