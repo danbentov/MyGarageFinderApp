@@ -10,7 +10,7 @@ namespace MyGarageFinderApp
 {
     public partial class App : Application
     {
-        public User? LoggedInUser { get; set; }
+        public User LoggedInUser { get; set; }
         private MyGarageFinderWebAPIProxy proxy;
 
         public App(IServiceProvider serviceProvider, MyGarageFinderWebAPIProxy proxy)

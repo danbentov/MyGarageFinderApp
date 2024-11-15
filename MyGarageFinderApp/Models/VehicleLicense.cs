@@ -8,6 +8,10 @@ namespace MyGarageFinderApp.Models
 {
     public class VehicleLicense
     {
-        string LicensePlate { get; set; }
+        public string LicensePlate { get; set; }
+        public VehicleLicense()
+        {
+
+        }
     }
 }
