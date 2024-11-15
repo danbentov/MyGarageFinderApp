@@ -191,7 +191,7 @@ namespace TasksManagementApp.Services
             }
         }
 
-        public async Task<ObservableCollection<Vehicle>?> RegisterVehicle(User user)
+        public async Task<ObservableCollection<Vehicle>?> GetUserVehicles(User user)
         {
             string url = $"{this.baseUrl}myvehicles";
             try

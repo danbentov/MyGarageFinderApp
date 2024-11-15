@@ -16,6 +16,9 @@ namespace MyGarageFinderApp
         private void RegisterRoutes()
         {
             Routing.RegisterRoute("garagesHomePageView", typeof(GaragesHomePageView));
+            Routing.RegisterRoute("repairHistoryView", typeof(RepairHistoryView));
+            Routing.RegisterRoute("addCarView", typeof(AddCarView));
+            Routing.RegisterRoute("updateProfileView", typeof(ProfileView));
         }
     }
 }
