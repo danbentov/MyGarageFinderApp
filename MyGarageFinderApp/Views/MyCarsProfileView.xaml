@@ -15,9 +15,44 @@
                 <RowDefinition Height="20"/>
             </Grid.RowDefinitions>
             <Label Grid.Row="0" Grid.Column="0" Text="{Binding Name}" Style="{StaticResource labelNameStyle}"/>
-            
-            <ImageButton Grid.Column="1" HeightRequest="25" Source="passwordeye.jpg"  Command="{Binding ShowPasswordCommand}" />
+            <Label Grid.Row="1" Grid.Column="0" Text="{Binding License}" Style="{StaticResource labelNameStyle}"/>
+            <Button Text="Update Profile" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Command="{Binding UpdateUserCommand}"/>
         </Grid>
+
+        <CollectionView ItemsSource="{Binding MyVehicles}" x:Name="theCollectionView"
+                        SelectedItem="{Binding SelectedVehicle}"
+                SelectionMode="Single" SelectionChangedCommand="{Binding SingleSelectCommand}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="10"/>
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Source="{Binding ImageURL}" Margin="3"/>
+                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding Manufacturer}" Margin="2" TextColor="Black" FontAttributes="Italic"/>
+                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding Model}" Margin="2" TextColor="Black" FontAttributes="Italic"/>
+                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding LicensePlate}" Margin="2" TextColor="Black" FontAttributes="Italic"/>
+                        <Label Grid.Row="0" Grid.Column="2" Text="{Binding VehicleYear}" Margin="2" TextColor="Black" FontAttributes="Italic"/>
+                        <Label Grid.Row="1" Grid.Column="2" Text="{Binding FuelType}" Margin="2" TextColor="Black" FontAttributes="Italic"/>
+                        <Label Grid.Row="2" Grid.Column="2" Text="{Binding Color}" Margin="2" TextColor="Black" FontAttributes="Italic"/>
+
+                        <Label Grid.Row="0" Grid.RowSpan="3" Grid.Column="3" Text="Click to see car history repairs" TextColor="Red" FontFamily="Camaro"/>
+
+
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Command="{Binding AddCarCommand}" Text="Add A Car" BackgroundColor="Green"/>
 
     </VerticalStackLayout>
 </ContentPage>
