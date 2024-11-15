@@ -22,7 +22,7 @@ namespace MyGarageFinderApp.ViewModels
             ShowFieldsError = false;
             FieldsError = "Not all fields completed";
             IsSearched = false;
-            IsExists = false;
+            notExist = true;
             FoundVehicle = "";
             SearchVehicleCommand = new Command(OnSearchVehicle);
             RegisterVehicleCommand = new Command(OnRegisterVehicle);
@@ -43,7 +43,7 @@ namespace MyGarageFinderApp.ViewModels
                 this.licensePlate = value;
                 validateLicense();
                 IsSearched = false;
-                IsExists = false;
+                notExist = true;
                 OnPropertyChanged();
             }
         }
@@ -269,7 +269,7 @@ namespace MyGarageFinderApp.ViewModels
         public Command RegisterVehicleCommand { get; }
 
         public bool IsSearched { get; set; }
-        public bool IsExists { get; set; }
+        public bool notExist { get; set; }
 
         private string foundVehicle;
         public string FoundVehicle
@@ -306,12 +306,12 @@ namespace MyGarageFinderApp.ViewModels
                     Color = vehicle.Color;
                     photoURL = vehicle.ImageURL;
                     FoundVehicle = "Vehicle is existed - you can register as an owner";
-                    IsExists = true;
+                    notExist = false;
                 }
                 else
                 {
                     FoundVehicle = "Vehicle isnt existed - enter details";
-                    IsExists = false;
+                    notExist = true;
                 }
                 IsSearched = true;
             }

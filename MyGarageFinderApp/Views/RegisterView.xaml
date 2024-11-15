@@ -7,6 +7,7 @@
     <VerticalStackLayout>
             <Label Text="WELCOME TO MY GARAGE FINDER !" FontSize="Title" HorizontalTextAlignment="Center" Padding="20" FontFamily="Camaro"/>
         
+        
         <!--firstname-->
         <Grid>
             <Grid.ColumnDefinitions>
