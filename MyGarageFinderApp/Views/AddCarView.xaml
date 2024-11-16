@@ -4,8 +4,8 @@
              x:Class="MyGarageFinderApp.Views.AddCarView"
              Title="AddCarView">
 
-
-    <VerticalStackLayout>
+    
+        <VerticalStackLayout>
         
         <Label Text="Add Your Car" FontSize="Title" HorizontalTextAlignment="Center" Padding="10" FontFamily="Camaro"/>
         <Label Text="Search before Register" FontSize="Body"  HorizontalTextAlignment="Center" Padding="5" FontFamily="Camaro"/>
@@ -26,19 +26,19 @@
         <Label Text="{Binding FieldsError}" IsVisible="{Binding ShowFieldsError}" Grid.Column="1" Style="{StaticResource labelErrorStyle}" Padding="5" />
 
         <Label Text="Manufacturer" Grid.Column="0" Style="{x:StaticResource labelNameStyle}" />
-        <Entry Placeholder="Type Manufacturer" Text="{Binding Manufactor}" Style="{StaticResource entryStyle}" IsEnabled="{Binding notExist}"/>
+        <Entry Placeholder="Type Manufacturer" Text="{Binding Manufactor}" Style="{StaticResource entryStyle}" IsEnabled="{Binding NotExist}"/>
 
         <Label Text="Model" Grid.Column="0" Style="{x:StaticResource labelNameStyle}" />
-        <Entry Placeholder="Type Model" Text="{Binding Model}" Style="{StaticResource entryStyle}" IsEnabled="{Binding notExist}"/>
+        <Entry Placeholder="Type Model" Text="{Binding Model}" Style="{StaticResource entryStyle}" IsEnabled="{Binding NotExist}"/>
 
         <Label Text="Year" Grid.Column="0" Style="{x:StaticResource labelNameStyle}" />
-        <Entry Placeholder="Type Year" Text="{Binding Year}" Style="{StaticResource entryStyle}" IsEnabled="{Binding notExist}"/>
+        <Entry Placeholder="Type Year" Text="{Binding Year}" Style="{StaticResource entryStyle}" IsEnabled="{Binding NotExist}"/>
 
         <Label Text="Fuel" Grid.Column="0" Style="{x:StaticResource labelNameStyle}" />
-        <Entry Placeholder="Type Fuel" Text="{Binding Fuel}" Style="{StaticResource entryStyle}" IsEnabled="{Binding notExist}"/>
+        <Entry Placeholder="Type Fuel" Text="{Binding Fuel}" Style="{StaticResource entryStyle}" IsEnabled="{Binding NotExist}"/>
 
         <Label Text="Color" Grid.Column="0" Style="{x:StaticResource labelNameStyle}" />
-        <Entry Placeholder="Type Color" Text="{Binding Color}" Style="{StaticResource entryStyle}" IsEnabled="{Binding notExist}" />
+        <Entry Placeholder="Type Color" Text="{Binding Color}" Style="{StaticResource entryStyle}" IsEnabled="{Binding NotExist}" />
 
         <Grid>
             <Grid.ColumnDefinitions>

@@ -17,12 +17,12 @@ namespace MyGarageFinderApp.ViewModels
             this.proxy = proxy;
             PhotoURL = proxy.GetDefaultProfilePhotoUrl();
             LocalPhotoPath = "";
-            showLicenseError = false;
+            ShowLicenseError = false;
             LicenseError = "License Plate should be at least 5 characters";
             ShowFieldsError = false;
             FieldsError = "Not all fields completed";
             IsSearched = false;
-            notExist = true;
+            NotExist = true;
             FoundVehicle = "";
             SearchVehicleCommand = new Command(OnSearchVehicle);
             RegisterVehicleCommand = new Command(OnRegisterVehicle);
@@ -43,7 +43,7 @@ namespace MyGarageFinderApp.ViewModels
                 this.licensePlate = value;
                 validateLicense();
                 IsSearched = false;
-                notExist = true;
+                NotExist = true;
                 OnPropertyChanged();
             }
         }
@@ -84,7 +84,7 @@ namespace MyGarageFinderApp.ViewModels
                 this.ShowLicenseError = true;
             else
             {
-                this.showLicenseError = false;
+                this.ShowLicenseError = false;
             }
         }
 
@@ -268,9 +268,34 @@ namespace MyGarageFinderApp.ViewModels
         public Command SearchVehicleCommand { get; }
         public Command RegisterVehicleCommand { get; }
 
-        public bool IsSearched { get; set; }
-        public bool notExist { get; set; }
+        private bool isSearched;
+        public bool IsSearched
+        {
+            get
+            {
+                return this.isSearched;
+            }
+            set
+            {
+                isSearched = value;
+                OnPropertyChanged("IsSearched");
 
+            }
+        }
+        private bool notExist;
+        public bool NotExist
+        {
+            get
+            {
+                return this.notExist;
+            }
+            set
+            {
+                notExist = value;
+                OnPropertyChanged("NotExist");
+
+            }
+        }
         private string foundVehicle;
         public string FoundVehicle
 
@@ -289,7 +314,7 @@ namespace MyGarageFinderApp.ViewModels
         public async void OnSearchVehicle()
         {
             validateLicense();
-            if (!showLicenseError)
+            if (!ShowLicenseError)
             {
                 VehicleLicense L = new VehicleLicense();
                 L.LicensePlate = LicensePlate;
@@ -306,12 +331,12 @@ namespace MyGarageFinderApp.ViewModels
                     Color = vehicle.Color;
                     photoURL = vehicle.ImageURL;
                     FoundVehicle = "Vehicle is existed - you can register as an owner";
-                    notExist = false;
+                    NotExist = false;
                 }
                 else
                 {
                     FoundVehicle = "Vehicle isnt existed - enter details";
-                    notExist = true;
+                    NotExist = true;
                 }
                 IsSearched = true;
             }
@@ -326,7 +351,7 @@ namespace MyGarageFinderApp.ViewModels
         {
             validateLicense();
             validatefields();
-            if (!showLicenseError && !string.IsNullOrEmpty(Manufactor) && !string.IsNullOrEmpty(Model) && !string.IsNullOrEmpty(Year) && !string.IsNullOrEmpty(Fuel) && !string.IsNullOrEmpty(Color))
+            if (!ShowLicenseError && !string.IsNullOrEmpty(Manufactor) && !string.IsNullOrEmpty(Model) && !string.IsNullOrEmpty(Year) && !string.IsNullOrEmpty(Fuel) && !string.IsNullOrEmpty(Color))
             {
                 Vehicle vhc = new Vehicle
                 {

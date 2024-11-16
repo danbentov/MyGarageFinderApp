@@ -328,7 +328,7 @@ namespace MyGarageFinderApp.ViewModels
             if (!ShowNameError && !ShowLastNameError && !ShowEmailError && !ShowPasswordError)
             {
                 //Create a new AppUser object with the data from the registration form
-                var newUser = new User
+                User newUser = new User
                 {
                     FirstName = Name,
                     LastName = LastName,
@@ -339,7 +339,7 @@ namespace MyGarageFinderApp.ViewModels
                     GarageLicense = ((App)Application.Current).LoggedInUser.GarageLicense
                 };
 
-                //Call the u[date method on the proxy to update the new user
+                //Call the update method on the proxy to update the new user
                 InServerCall = true;
                 newUser = await proxy.updateUser(newUser);
                 InServerCall = false;
