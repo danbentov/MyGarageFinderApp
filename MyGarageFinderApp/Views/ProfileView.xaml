@@ -67,7 +67,7 @@
             <ImageButton Grid.Column="1" HeightRequest="25" Source="passwordeye.jpg"  Command="{Binding ShowPasswordCommand}" />
         </Grid>
 
-        <!-- Register and Cancel Buttons -->
+        <!-- update and Cancel Buttons -->
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />

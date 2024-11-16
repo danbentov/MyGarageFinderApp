@@ -348,6 +348,7 @@ namespace MyGarageFinderApp.ViewModels
                 if (newUser != null)
                 {
                     InServerCall = false;
+                    ((App)(Application.Current)).LoggedInUser = newUser;
                     ((App)(Application.Current)).MainPage.Navigation.PopAsync();
                 }
                 else
