@@ -4,9 +4,27 @@
              x:Class="MyGarageFinderApp.Views.RepairHistoryView"
              Title="RepairHistoryView">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Label>
+            <Label.FormattedText>
+                <FormattedString>
+                    <!-- License Plate span -->
+                    <Span Text="{Binding SelectedVehicle.LicensePlate}" 
+                          FontAttributes="Bold" 
+                          FontSize="Medium" />
+                    <!-- Spacer (just to add some space between values) -->
+                    <Span Text=" - " FontSize="Medium"/>
+                    <!-- Model span -->
+                    <Span Text="{Binding SelectedVehicle.Model}" 
+                          FontSize="Medium"/>
+                    <!-- Spacer -->
+                    <Span Text=" (" FontSize="Medium"/>
+                    <!-- Manufacturer span -->
+                    <Span Text="{Binding SelectedVehicle.Manufacturer}" 
+                          FontSize="Medium"/>
+                    <!-- Closing Parenthesis -->
+                    <Span Text=")" FontSize="Medium"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
     </VerticalStackLayout>
 </ContentPage>

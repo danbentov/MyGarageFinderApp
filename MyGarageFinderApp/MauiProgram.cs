@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Win32;
+using MyGarageFinderApp.Services;
 using MyGarageFinderApp.ViewModels;
 using MyGarageFinderApp.Views;
 using TasksManagementApp.Services;
@@ -56,6 +57,7 @@ namespace MyGarageFinderApp
         public static MauiAppBuilder RegisterDataServices(this MauiAppBuilder builder)
         {
             builder.Services.AddSingleton<MyGarageFinderWebAPIProxy>();
+            builder.Services.AddSingleton<TheGarageManagerWebAPIProxy>();
             return builder;
         }
         public static MauiAppBuilder RegisterViewModels(this MauiAppBuilder builder)
