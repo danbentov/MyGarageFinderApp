@@ -4,10 +4,10 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="MyCarsProfileView">
-    <ScrollView>
 
 
-        <VerticalStackLayout>
+        <ScrollView VerticalOptions="FillAndExpand" VerticalScrollBarVisibility="Always">
+            <VerticalStackLayout>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -141,6 +141,7 @@
                 Text="Add A Car" />
 
         </VerticalStackLayout>
-    </ScrollView>
+            </ScrollView>
+
 
 </ContentPage>

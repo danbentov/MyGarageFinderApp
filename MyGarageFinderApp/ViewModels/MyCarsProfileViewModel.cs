@@ -34,11 +34,9 @@ namespace MyGarageFinderApp.ViewModels
         {
             this.proxy = p;
             readVehicles();
-            IsRefreshing = false;
             SingleSelectCommand = new Command(OnSingleSelectVehicle);
             AddCarCommand = new Command(OnAddCarCommand);
             UpdateUserCommand = new Command(OnUpdateCommand);
-            RefreshCommand = new Command(Refresh);
             Name = ((App)Application.Current).LoggedInUser.FirstName + " " + ((App)Application.Current).LoggedInUser.LastName;
             License = ((App)Application.Current).LoggedInUser.LicenseNumber;
         }
@@ -50,30 +48,6 @@ namespace MyGarageFinderApp.ViewModels
             MyVehicles = await proxy.GetUserVehicles(((App)Application.Current).LoggedInUser);
         }
 
-        #region Refresh View
-        public Command RefreshCommand { get; set; }
-        private async void Refresh()
-        {
-
-            readVehicles();
-
-            IsRefreshing = false;
-        }
-
-        private bool isRefreshing;
-        public bool IsRefreshing
-        {
-            get
-            {
-                return this.isRefreshing;
-            }
-            set
-            {
-                this.isRefreshing = value;
-                OnPropertyChanged();
-            }
-        }
-        #endregion
 
         private object selectedVehicle;
         public object SelectedVehicle

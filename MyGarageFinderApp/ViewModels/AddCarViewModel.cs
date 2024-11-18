@@ -12,9 +12,11 @@ namespace MyGarageFinderApp.ViewModels
     public class AddCarViewModel : ViewModelBase
     {
         private MyGarageFinderWebAPIProxy proxy;
-        public AddCarViewModel(MyGarageFinderWebAPIProxy proxy)
+        private IServiceProvider serviceProvider;
+        public AddCarViewModel(MyGarageFinderWebAPIProxy proxy, IServiceProvider ServiceProvider)
         {
             this.proxy = proxy;
+            this.serviceProvider = ServiceProvider;
             PhotoURL = proxy.GetDefaultProfilePhotoUrl();
             LocalPhotoPath = "";
             ShowLicenseError = false;
@@ -374,6 +376,8 @@ namespace MyGarageFinderApp.ViewModels
 
                 if (vehicleUser != null)
                 {
+                    MyCarsProfileViewModel mcpvm = serviceProvider.GetService<MyCarsProfileViewModel>();
+                    mcpvm.readVehicles();
                     ((App)(Application.Current)).MainPage.Navigation.PopAsync();
                 }
                 else
