@@ -33,6 +33,7 @@ namespace MyGarageFinderApp.ViewModels
         public MyCarsProfileViewModel(MyGarageFinderWebAPIProxy p)
         {
             this.proxy = p;
+            IsRefreshing = false;
             readVehicles();
             SingleSelectCommand = new Command(OnSingleSelectVehicle);
             AddCarCommand = new Command(OnAddCarCommand);
@@ -40,6 +41,31 @@ namespace MyGarageFinderApp.ViewModels
             Name = ((App)Application.Current).LoggedInUser.FirstName + " " + ((App)Application.Current).LoggedInUser.LastName;
             License = ((App)Application.Current).LoggedInUser.LicenseNumber;
         }
+
+        #region Refresh View
+        public ICommand RefreshCommand => new Command(Refresh);
+        private async void Refresh()
+        {
+
+            readVehicles();
+
+            IsRefreshing = false;
+        }
+
+        private bool isRefreshing;
+        public bool IsRefreshing
+        {
+            get
+            {
+                return this.isRefreshing;
+            }
+            set
+            {
+                this.isRefreshing = value;
+                OnPropertyChanged();
+            }
+        }
+        #endregion
 
 
         public async void readVehicles()

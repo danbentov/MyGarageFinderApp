@@ -4,72 +4,87 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="MyCarsProfileView">
-
-
-        <ScrollView VerticalOptions="FillAndExpand" VerticalScrollBarVisibility="Always">
-            <VerticalStackLayout>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="30" />
-                    <RowDefinition Height="30" />
-                </Grid.RowDefinitions>
-                <Label
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+    
+        
+            <VerticalStackLayout Grid.Row="0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="40" />
+                    </Grid.RowDefinitions>
+                    <Label
                     Grid.Row="0"
                     Grid.Column="0"
                     FontAttributes="Bold"
                     HorizontalTextAlignment="Center"
                     Text="{Binding Name}"
-                    VerticalTextAlignment="Center" />
-                <Label
+                        FontSize="Large"
+                    VerticalTextAlignment="Center" 
+                        VerticalOptions="FillAndExpand"/>
+                    <Label
                     Grid.Row="1"
                     Grid.Column="0"
                     FontAttributes="Bold"
                     HorizontalTextAlignment="Center"
                     Text="{Binding License}"
-                    VerticalTextAlignment="Center" />
-                <Button
+                        FontSize="Large"
+                    VerticalTextAlignment="Center" 
+                        VerticalOptions="FillAndExpand"/>
+                    <Button
                     Grid.Row="0"
                     Grid.RowSpan="2"
                     Grid.Column="1"
                     Command="{Binding UpdateUserCommand}"
                     Text="Update Profile" />
-            </Grid>
+                </Grid>
+        </VerticalStackLayout>
 
-            <CollectionView
+
+        <RefreshView 
+     Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}" Grid.Row="1">
+                <ScrollView VerticalOptions="FillAndExpand" VerticalScrollBarVisibility="Always">
+
+                    <CollectionView
                 x:Name="theCollectionView"
                 ItemsSource="{Binding MyVehicles}"
                 SelectedItem="{Binding SelectedVehicle}"
                 SelectionChangedCommand="{Binding SingleSelectCommand}"
                 SelectionMode="Single">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Border
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border
                             Padding="5"
                             Stroke="DarkSlateGray"
                             StrokeThickness="5">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="40" />
-                                    <RowDefinition Height="40" />
-                                    <RowDefinition Height="40" />
-                                </Grid.RowDefinitions>
-                                <Image
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="40" />
+                                        <RowDefinition Height="40" />
+                                        <RowDefinition Height="40" />
+                                    </Grid.RowDefinitions>
+                                    <Image
                                     Grid.Row="0"
                                     Grid.RowSpan="3"
                                     Grid.Column="0"
                                     Margin="3"
                                     Source="{Binding ImageURL}" />
-                                <Label
+                                    <Label
                                     Grid.Row="0"
                                     Grid.Column="1"
                                     Margin="2"
@@ -77,7 +92,7 @@
                                     FontSize="Title"
                                     Text="{Binding Manufacturer}"
                                     TextColor="Black" />
-                                <Label
+                                    <Label
                                     Grid.Row="1"
                                     Grid.Column="1"
                                     Margin="2"
@@ -85,7 +100,7 @@
                                     FontSize="Title"
                                     Text="{Binding Model}"
                                     TextColor="Black" />
-                                <Label
+                                    <Label
                                     Grid.Row="2"
                                     Grid.Column="1"
                                     Margin="2"
@@ -93,7 +108,7 @@
                                     FontSize="Title"
                                     Text="{Binding LicensePlate}"
                                     TextColor="Black" />
-                                <Label
+                                    <Label
                                     Grid.Row="0"
                                     Grid.Column="2"
                                     Margin="2"
@@ -101,7 +116,7 @@
                                     FontSize="Title"
                                     Text="{Binding VehicleYear}"
                                     TextColor="Black" />
-                                <Label
+                                    <Label
                                     Grid.Row="1"
                                     Grid.Column="2"
                                     Margin="2"
@@ -109,7 +124,7 @@
                                     FontSize="Title"
                                     Text="{Binding FuelType}"
                                     TextColor="Black" />
-                                <Label
+                                    <Label
                                     Grid.Row="2"
                                     Grid.Column="2"
                                     Margin="2"
@@ -118,7 +133,7 @@
                                     Text="{Binding Color}"
                                     TextColor="Black" />
 
-                                <Label
+                                    <Label
                                     Grid.Row="0"
                                     Grid.RowSpan="3"
                                     Grid.Column="3"
@@ -128,20 +143,23 @@
                                     VerticalTextAlignment="Center" />
 
 
-                            </Grid>
-                        </Border>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                </ScrollView>
+            </RefreshView>
 
 
             <Button
                 BackgroundColor="Green"
                 Command="{Binding AddCarCommand}"
-                Text="Add A Car" />
+                Text="Add A Car" 
+                Grid.Row="2"/>
 
-        </VerticalStackLayout>
-            </ScrollView>
+       
+    </Grid>
 
 
 </ContentPage>
