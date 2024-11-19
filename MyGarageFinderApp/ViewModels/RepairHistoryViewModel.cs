@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using TasksManagementApp.Services;
 
 namespace MyGarageFinderApp.ViewModels
@@ -20,8 +21,34 @@ namespace MyGarageFinderApp.ViewModels
         {
             this.myGarageFinderWebAPIProxy = p;
             this.theGarageManagerWebAPIProxy = p2;
+            IsRefreshing = false;
             readHistoryRepairs();
         }
+
+        #region Refresh View
+        public ICommand RefreshCommand => new Command(Refresh);
+        private async void Refresh()
+        {
+
+            readHistoryRepairs();
+
+            IsRefreshing = false;
+        }
+
+        private bool isRefreshing;
+        public bool IsRefreshing
+        {
+            get
+            {
+                return this.isRefreshing;
+            }
+            set
+            {
+                this.isRefreshing = value;
+                OnPropertyChanged();
+            }
+        }
+        #endregion
 
         public async void readHistoryRepairs()
         {
@@ -36,8 +63,8 @@ namespace MyGarageFinderApp.ViewModels
         }
 
 
-        private object selectedVehicle;
-        public object SelectedVehicle
+        private Vehicle selectedVehicle;
+        public Vehicle SelectedVehicle
         {
             get
             {
@@ -46,7 +73,7 @@ namespace MyGarageFinderApp.ViewModels
             set
             {
                 this.selectedVehicle = value;
-                OnPropertyChanged();
+                OnPropertyChanged(nameof(SelectedVehicle));
             }
         }
 

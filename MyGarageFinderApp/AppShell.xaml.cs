@@ -9,7 +9,7 @@ namespace MyGarageFinderApp
         public AppShell(AppShellViewModel vm)
         {
             this.BindingContext = vm;
-            //InitializeComponent();
+            InitializeComponent();
             RegisterRoutes();
         }
 

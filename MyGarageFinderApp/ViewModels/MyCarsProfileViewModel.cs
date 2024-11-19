@@ -23,7 +23,7 @@ namespace MyGarageFinderApp.ViewModels
             set
             {
                 this.myVehicles = value;
-                OnPropertyChanged();
+                OnPropertyChanged("MyVehicles");
             }
         }
 
@@ -75,8 +75,8 @@ namespace MyGarageFinderApp.ViewModels
         }
 
 
-        private object selectedVehicle;
-        public object SelectedVehicle
+        private Vehicle selectedVehicle;
+        public Vehicle SelectedVehicle
         {
             get
             {
