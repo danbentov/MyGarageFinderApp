@@ -22,7 +22,6 @@ namespace MyGarageFinderApp.ViewModels
             this.myGarageFinderWebAPIProxy = p;
             this.theGarageManagerWebAPIProxy = p2;
             IsRefreshing = false;
-            readHistoryRepairs();
         }
 
         #region Refresh View
@@ -54,7 +53,7 @@ namespace MyGarageFinderApp.ViewModels
         {
             this.SelectedCarRepairs = new ObservableCollection<CarRepair>();
             VehicleLicense l = new VehicleLicense();
-            if (SelectedVehicle is Vehicle)
+            if (this.SelectedVehicle is Vehicle)
             {
                 Vehicle vehicle = (Vehicle)SelectedVehicle;
                 l.LicensePlate = vehicle.LicensePlate;
@@ -74,6 +73,7 @@ namespace MyGarageFinderApp.ViewModels
             {
                 this.selectedVehicle = value;
                 OnPropertyChanged(nameof(SelectedVehicle));
+                readHistoryRepairs();
             }
         }
 

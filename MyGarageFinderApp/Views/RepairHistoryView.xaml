@@ -62,13 +62,48 @@ Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}" Grid.Ro
                                     </Grid.RowDefinitions>
 
                                     <Label
-Grid.Row="2"
-Grid.Column="2"
+                                        Grid.Row="1"
+                                        Grid.Column="0"
+                                        Grid.RowSpan="2"
+                                        Grid.ColumnSpan="3"
+                                        Margin="2"
+                                        VerticalOptions="CenterAndExpand"
+                                        HorizontalOptions="StartAndExpand"
+                                        Text="{Binding DescriptionCar}"
+                                        TextColor="Black"/>
+
+                                    <Label
+                                         Grid.Row="0"
+                                         Grid.Column="0"
+                                         Grid.ColumnSpan="3"
+                                         Margin="2"
+                                         VerticalOptions="FillAndExpand"
+                                         HorizontalOptions="FillAndExpand"
+                                         Text="{Binding GarageName}"
+                                         TextColor="Black"/>
+
+                                    <Label
+    Grid.Row="2"
+    Grid.Column="3"
+    Margin="2"
+    VerticalOptions="FillAndExpand"
+    HorizontalOptions="FillAndExpand"
+    Text="{Binding Cost}"
+    TextColor="Black"
+    FontAttributes="Bold"                                   />
+
+                                    <Label
+Grid.Row="0"
+Grid.Column="3"
 Margin="2"
-                                        VerticalOptions="FillAndExpand"
-                                        HorizontalOptions="FillAndExpand"
-Text="{Binding DescriptionCar}"
-TextColor="Black" />
+VerticalOptions="FillAndExpand"
+HorizontalOptions="FillAndExpand"
+Text="{Binding RepairDate}"
+TextColor="Black"/>
+
+
+
+
 
 
                                 </Grid>
